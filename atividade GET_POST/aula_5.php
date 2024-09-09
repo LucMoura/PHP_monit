@@ -18,7 +18,7 @@
 
     </form>
     <?php
-        include 'functions_2.php';
+        include 'functions_3.php';
         if (isset($_POST["num_1"])  && isset($_POST["num_2"])){
             $num1 = htmlspecialchars($_POST["num_1"]);
             $num2 =  htmlspecialchars($_POST["num_2"]);
