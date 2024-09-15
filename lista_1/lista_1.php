@@ -81,5 +81,23 @@
         }
 
     ?>
+    <h1>Questão 2</h1>
+    <form action="lista_1.php" method="post">
+        <label for="">Digite os números</label>
+        <input type="text" name="lista_2" id="lista_input_par_impar">
+        <button type="submit">Enviar</button>
+    </form>
+
+    <?php
+        if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $lista = $_POST['lista_input_par_impar']?? $lista = "";
+            $lista = array_map('trim', explode(',', $lista));
+            $resultado = par_impar($lista);
+
+            echo "Números pares: " . implode(",",$resultado['pares']). "<br>";
+            echo "Números impares" . implode("," ,  $resultado['impares']) . "<br>";
+        }
+
+    ?>
 </body>
 </html>
