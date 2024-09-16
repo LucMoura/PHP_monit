@@ -161,8 +161,46 @@
     <?php
         if ($_SERVER['REQUEST_METHOD'] === 'POST'){
             $h_tri = $_POST['H_tri'];
-            
+            echo veri_trian($h_tri);    
             echo h_triang($h_tri);
+        }
+    ?>
+    <h1>Questão 6</h1>
+    <form action="lista_1.php" method = "Post">
+        <label for="">Selecione a forma geometrica: </label>
+        <select name="form_geo" id="form_geo">
+            <option value=""></option>
+            <option value="Triângulo">Triangulo</option>
+            <option value="Quadrado">Quadrado</option>
+            <option value="Retângulo">Retângulo</option>
+        </select>
+        <br><br>
+        <label for="">Lado // Altura: </label>
+        <input type="number" name="Altura" id="Altura">
+        <br><br>
+        <label for="">Largura: </label>
+        <input type="number" name="Largura" id="Largura">
+        <br><br>
+        <button type="submit">Enviar</button>
+    </form>
+    <?php
+        if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $forma = $_POST['form_geo'];
+            $dimensao = $_POST['Altura'];
+            $largura = $_POST['Largura'] ?? $dimensao;
+
+            echo veri_forms($dimensao, $largura);
+            switch ($forma) {
+                case 'Quadrado':
+                    desenharQuadrado($dimensao);
+                    break;
+                case 'Retângulo':
+                    desenharRetangulo($dimensao, $largura);
+                    break;
+                case 'Triângulo':
+                    desenharTriangulo($dimensao);
+                    break;
+            }
         }
     ?>
 

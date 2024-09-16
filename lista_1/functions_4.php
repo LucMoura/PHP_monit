@@ -72,6 +72,12 @@
         }
     }
 
+    function veri_trian($num){
+        if ($num <= 0 || !is_numeric($num)){
+            return "Triangulo inexistente";
+        }
+    }
+
     function h_triang($num){
         $tri = "";
         for ($i=0; $i < $num ; $i++) { 
@@ -80,5 +86,28 @@
             $tri .=  str_repeat("&nbsp;", $space) . str_repeat("*", $asterisco) . "<br>";
         }
         return $tri;
+    }
+
+    function veri_forms($dimensao, $largura){
+        if ($dimensao <= 0 || $largura <= 0 || !is_numeric($dimensao) || !is_numeric($largura)) {
+            return "Por favor, insira valores numéricos positivos para as dimensões. <br>";
+        }
+    }
+    function desenharQuadrado($lado) {
+        for ($i = 0; $i < $lado; $i++) {
+            echo str_repeat("*", $lado) . "<br>";
+        }
+    }
+
+    function desenharRetangulo($altura, $largura) {
+        for ($i = 0; $i < $altura; $i++) {
+            echo str_repeat("*", $largura) . "<br>";
+        }
+    }
+
+    function desenharTriangulo($altura) {
+        for ($i = 1; $i <= $altura; $i++) {
+            echo str_repeat(" ", $altura - $i) . str_repeat("*", $i * 2 - 1) . "<br>";
+        }
     }
 ?>
