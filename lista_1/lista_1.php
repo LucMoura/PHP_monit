@@ -152,5 +152,19 @@
             print_lista($final_fila);
         }
     ?>
+    <h1>Questão 5</h1>
+    <form action="lista_1.php" method="Post">
+        <label for="">Digite a altura do seu triangulo</label>
+        <input type="number" name = "H_tri" id="H_tri">
+        <button type="submit">Enviar</button>
+    </form>
+    <?php
+        if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $h_tri = $_POST['H_tri'];
+            
+            echo h_triang($h_tri);
+        }
+    ?>
+
 </body>
 </html>

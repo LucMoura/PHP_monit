@@ -71,4 +71,14 @@
             echo $b . " ";
         }
     }
+
+    function h_triang($num){
+        $tri = "";
+        for ($i=0; $i < $num ; $i++) { 
+            $space = $num - $i - 1;
+            $asterisco = $i *2 + 1;
+            $tri .=  str_repeat("&nbsp;", $space) . str_repeat("*", $asterisco) . "<br>";
+        }
+        return $tri;
+    }
 ?>
