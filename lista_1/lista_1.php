@@ -90,12 +90,16 @@
 
     <?php
         if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-            $lista = $_POST['lista_input_par_impar']?? $lista = "";
-            $lista = array_map('trim', explode(',', $lista));
-            $resultado = par_impar($lista);
+            $lista = $_POST['lista_2']?? $lista = "";
+            $lista = explode(',', $lista);
+            $lista = array_map('intval', $lista);
 
-            echo "Números pares: " . implode(",",$resultado['pares']). "<br>";
-            echo "Números impares" . implode("," ,  $resultado['impares']) . "<br>";
+            $resultado = par_impar($lista);
+            echo "<table>";
+            echo "<tr><th>Pares</th><th>Ímpares</th></tr>";
+            echo "<tr><td>" . implode(', ', $resultado['pares']) . "</td><td>" . implode(', ', $resultado['impares']) . "</td></tr>";
+            echo "</table>";
+           
         }
 
     ?>

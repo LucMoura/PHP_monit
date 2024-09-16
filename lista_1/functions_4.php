@@ -16,19 +16,9 @@
     }
 
     function par_impar($numeros){
-            $pares = [];
-            $impares = [];
+            $pares = array_filter($numeros, fn($numero) => $numero % 2 === 0);
+            $impares = array_filter($numeros, fn($numero) => $numero % 2 !== 0);
         
-            $numeros = array_filter($numeros, 'is_numeric');
-        
-            foreach ($numeros as $numero) {
-                $operacoes = [
-                    0 => function() use (&$pares, $numero) { $pares[] = $numero; },
-                    1 => function() use (&$impares, $numero) { $impares[] = $numero; },
-                ];
-                $operacoes[$numero % 2]();
-            }
-            
             return ['pares' => $pares, 'impares' => $impares];
         }
         
