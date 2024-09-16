@@ -54,4 +54,21 @@
             return "Eixo";
         }
     }
+
+    function filas($N, $fila_init, $M, $saida){
+        $fila = $fila_init;
+
+        foreach($saida as $pers_out){
+            $indice = array_search($pers_out, $fila);
+            unset($fila[$indice]);
+            $fila = array_values($fila);
+        }
+        return $fila;
+    }
+
+    function print_lista($a = array()){
+        foreach($a as $b){
+            echo $b . " ";
+        }
+    }
 ?>

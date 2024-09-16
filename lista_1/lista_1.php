@@ -122,5 +122,35 @@
             echo quadrante($num, $num_1);
         }
     ?>
+
+    <h1>Questão 4</h1>
+    <form action="lista_1.php" method="post">
+        <label for="">Digite a Quantidade de pessoas na fila</label>
+        <input type="number" name="num_person" id="num_person">
+        <br><br>
+        <label for="">Digite os seus identificadores</label>
+        <input type="text" name="ident_person" id="ident_person">
+        <br><br>
+        <label for="">Digite a quantidade de pessoas que sairam</label>
+        <input type="number" name="exit_person" id="exit_person">
+        <br><br>
+        <label for="">Digite o identificadores dos que sairam</label>
+        <input type="text" name="ident_exit_person" id="ident_exit_person">
+        <button type="submit">Enviar</button>
+    </form>
+    <?php
+        if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $N = $_POST['num_person'];
+            $ident_person_str = $_POST['ident_person'];
+            $M = $_POST['exit_person'];
+            $exit_person_str = $_POST['ident_exit_person'];
+
+            $ident_person = explode(',',$ident_person_str);
+            $exit_person = explode(',',$exit_person_str);
+
+            $final_fila = filas($N, $ident_person, $M, $exit_person);
+            print_lista($final_fila);
+        }
+    ?>
 </body>
 </html>
