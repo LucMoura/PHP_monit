@@ -103,5 +103,24 @@
         }
 
     ?>
+
+    <h1>Questão 3</h1>
+    <form action="lista_1.php" method="Post">
+        <label for="">Digite o primeiro número: </label>
+        <input type="number" name="num_1" id="num_1">
+        <br><br>
+        <label for="">Digite o segundo número: </label>
+        <input type="number" name = "num_2" id="num_2">
+        <button type="submit">Enviar</button>
+    </form>
+
+    <?php
+        if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $num = $_POST['num_1']?? $num;
+            $num_1 = $_POST['num_2']?? $num_1;
+
+            echo quadrante($num, $num_1);
+        }
+    ?>
 </body>
 </html>
